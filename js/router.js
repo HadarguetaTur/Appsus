@@ -7,7 +7,7 @@ import appHomeCmp from "./cmps/app-home.cmp.js";
 const routes = [
     {
         path: '/',
-        component: appHomeCmp
+        component: appHomeCmp,
     },
 
     {
