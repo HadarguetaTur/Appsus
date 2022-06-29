@@ -1,7 +1,7 @@
 export default {
     template: `
-    <section class="email-main main">
-    <h3>email</h3>
+    <section class="keep-main main">
+    <h3>keep</h3>
     </section>
    `,
    data() {

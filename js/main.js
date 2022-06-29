@@ -1,14 +1,14 @@
-// import { router } from './router.js'
+import { router } from './router.js'
 import appFooter from './cmps/app-footer.cmp.js'
 import appHeader from './cmps/app-header.cmp.js'
+
 
 
 const options = {
     template: `
         <section>
             <app-header />
-       
-          <app-home />
+            <router-view/>
             <app-footer />
         </section>
 
@@ -16,12 +16,13 @@ const options = {
     components: {
         appHeader,
         appFooter,
+      
    
     }
 };
 
 
 const app = Vue.createApp(options)
-// app.use(router)
+app.use(router)
 app.mount('#app')
 
