@@ -16,8 +16,9 @@ const routes = [
     },
     {
         path: '/mail',
-        component: mainMail,
+        component: mainMail
     },
+
 
 
 ]

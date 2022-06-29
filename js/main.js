@@ -16,8 +16,6 @@ const options = {
     components: {
         appHeader,
         appFooter,
-      
-   
     }
 };
 
@@ -25,4 +23,5 @@ const options = {
 const app = Vue.createApp(options)
 app.use(router)
 app.mount('#app')
+
 
