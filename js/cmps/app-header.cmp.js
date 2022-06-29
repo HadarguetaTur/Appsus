@@ -5,9 +5,9 @@ export default {
                 <h3>Appsus</h3>
             </div>
             <nav class="nav-bar">
-                <router-link to="/">mail</router-link>|
-                <router-link to="/">noth</router-link>|
-                <router-link to="/">books</router-link>|
+                <router-link to="/Email">mail</router-link>|
+                <router-link to="/Keep'">noth</router-link>|
+                <router-link to="/Books">books</router-link>|
             </nav>
         </header>
     
