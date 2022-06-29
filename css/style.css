@@ -17,3 +17,10 @@
 
 /* Media Queries */
 @import 'mq/mq.css';
+
+
+.mail-list{
+    width: 100px;
+    height: 100px;
+    background-color: aqua;
+}
