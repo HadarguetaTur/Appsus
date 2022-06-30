@@ -1,10 +1,5 @@
-<<<<<<< HEAD
 import { storageService } from '../../../services/async-storage-service.js';
 import { utilService } from '../../../services/util-Service.js';
-=======
-import { storageService } from '../../services/async-storage-service.js';
-import { utilService } from '../../services/util-Service.js';
->>>>>>> 146f38e89500146e6e54748dbb0da194dd62fd9b
 
 const EMAIL_KEY = 'emails';
 _createEmails();

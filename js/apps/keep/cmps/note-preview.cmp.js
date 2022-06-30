@@ -11,9 +11,9 @@ export default {
      <h3>{{note.info.label}}</h3> 
      <h3 v-if="note.type!='note-todos'">{{note.info.det}}</h3> 
      <div v-if="note.type==='note-todos'">
-         <li v-for="todo in note.type">
-               {{todo.txt}}
-        </li>
+     <li v-for=“(value, key, idx) in person">
+     {{ value }}
+     </li>
 
      <h3>{{note.info.url}}</h3>      
     </div>
