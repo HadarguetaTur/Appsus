@@ -6,10 +6,8 @@ export default {
     template: `
       <section class="mail-list">
             <ul class="clean-list">
-                <li v-for="mail in mails" :key="mail.id" class="mail-list-item" >
-                    <router-link :to="'/mail/' + mail.id"> <mail-preview :mail="mail" /> </router-link>
-                   
-                  
+                <li v-for="mail in mails" :key="mail.id" class="mail-list-item" :class="mail.isRead" >
+                    <router-link :to="'/mail/' + mail.id"> <mail-preview :mail="mail" :mails="mails" /> </router-link>
                 </li>
             </ul>
         </section>
