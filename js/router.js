@@ -1,5 +1,5 @@
 import keepMain from "./apps/keep/keep-main.cmp.js";
-import mainMail from "./apps/mail/main-mail.js";
+// import mainMail from "./apps/mail/main-mail.js";
 import appHomeCmp from "./cmps/app-home.cmp.js";
 
 
@@ -14,10 +14,10 @@ const routes = [
         path: '/Keep',
         component: keepMain,
     },
-    {
-        path: '/mail',
-        component: mainMail
-    },
+    // {
+    //     path: '/mail',
+    //     component: mainMail
+    // },
 
 
 
