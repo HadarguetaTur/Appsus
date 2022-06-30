@@ -1,0 +1,8 @@
+.unread{
+    font-weight: 700;
+}
+
+.mail-preview-checks-container{
+    position: absolute;
+    left: 100px;
+}

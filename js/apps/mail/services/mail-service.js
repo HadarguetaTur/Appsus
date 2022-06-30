@@ -1,5 +1,5 @@
-import { storageService } from '../../../service/async-storage-service.js';
-import { utilService } from '../../../service/util-Service.js';
+import { storageService } from '../../services/async-storage-service.js';
+import { utilService } from '../../services/util-Service.js';
 
 const EMAIL_KEY = 'emails';
 _createEmails();
@@ -10,7 +10,8 @@ export const mailService = {
     save,
     get,
     getUser,
-    createEmail
+    createEmail,
+    setFilter
 };
 
 function query() {
@@ -62,3 +63,10 @@ function getUser() {
 }
 
 
+function setFilter(mails, text = '') {
+    if (text === '') return
+    var sortedMails = mails.filter((mail) =>
+        mail.subject.includes(text)
+    )
+    return sortedMails
+}

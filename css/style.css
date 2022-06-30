@@ -20,3 +20,6 @@
 /* Media Queries */
 @import 'mq/mq.css';
 
+/* Mail App */
+@import '/css/mail-css/mail-app.css';
+@import '/css/mail-css/mail-list.css';
