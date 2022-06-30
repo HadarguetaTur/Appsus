@@ -6,9 +6,9 @@ export default {
     template: ` 
     <section class="main-list">
         <h2>Hello</h2>
-        <!-- <button @click="newMail">+</button> -->
-        <!-- <mail-compose v-if="this.newMail"/> -->
-        <mail-list />
+        <button @click="addMail">+</button>
+        <mail-list :mails="renderMails"/>
+        <mail-compose v-if="this.newMail" :newMail="this.newMail"/>
     </section>
    `,
     data() {
@@ -29,7 +29,7 @@ export default {
         showEmails(email) {
             this.selectedMail = email
         },
-        newMail() {
+        addMail() {
             this.newMail = true;
         }
 

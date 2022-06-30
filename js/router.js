@@ -1,6 +1,7 @@
 import keepMain from "./apps/keep/keep-main.cmp.js";
 import mainMail from "./apps/mail/main-mail.js";
 import appHomeCmp from "./cmps/app-home.cmp.js";
+import mailDetails from "./apps/mail/cmps/mail-details.cmp.js";
 
 
 
@@ -17,6 +18,10 @@ const routes = [
     {
         path: '/mail',
         component: mainMail
+    },
+    {
+        path: '/mail/:mailId',
+        component: mailDetails
     },
 
 

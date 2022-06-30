@@ -2,26 +2,23 @@ import mailPreview from "../../mail/cmps/mail-preview.cmp.js"
 
 export default {
 
-    // props: ['mails'],
+    props: ['mails'],
     template: `
       <section class="mail-list">
-         <button>wowowowowo</button>
-            <!-- <ul>
-                <li v-for="mail in mails" :key="mail.id" class="mail-preview" >
-                    <router-link :to="'/mail/' + mail.id">
-                   <mail-preview :mail="mail" />
-                   <div class="actions">
-                       <button @click="remove(mail.id)">X</button>
-                    </div>
+            <ul class="clean-list">
+                <li v-for="mail in mails" :key="mail.id" class="mail-list-item" >
+                    <router-link :to="'/mail/' + mail.id"> <mail-preview :mail="mail" /> </router-link>
+                   
+                  
                 </li>
-            </ul> -->
+            </ul>
         </section>
 `,
     data() {
         return {
         };
     },
-    created() { console.log("mails") },
+    created() { console.log(this.mails) },
     methods: {
         remove(id) {
             this.$emit('remove', id);
@@ -31,7 +28,7 @@ export default {
         },
     },
     computed: {},
-    componenets: {
+    components: {
         mailPreview
     },
     unmounted() { },

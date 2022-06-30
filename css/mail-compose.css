@@ -1,0 +1,9 @@
+.mail-compose{
+    flex-direction: column;
+    position: fixed;
+    border: 3px solid black;
+    width: 300px;
+    max-height: 250px;
+    bottom: 2.3rem;
+    background-color: rgb(255, 255, 255);
+}

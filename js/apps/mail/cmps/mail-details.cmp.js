@@ -2,9 +2,12 @@ import { mailService } from '../services/mail-service.js';
 
 export default {
     template: `
-  <section v-if="email" class="email-details">
-    <pre>{{email}}</pre>
+  <section v-if="this.mail" class="email-details">
+    <h2>subject: {{mail.subject}}</h2>
+    <h4>sent from: {{mail.from}}</h4>
+    <p>{{mail.body}}</p>
     <router-link to="/mail">
+        <button @click="removeMail">delete</button>
         <button>Back to mails</button>
     </router-link>
   </section>
@@ -18,12 +21,13 @@ export default {
         const mailId = this.$route.params.mailId;
         mailService.get(mailId).then(mail => {
             this.mail = mail;
+            console.log(this.mail);
             this.mail.isRead = true;
         });
     },
     methods: {
-        removeEmail() {
-            mailService.remove()
+        removeMail() {
+            mailService.remove(this.mail.id)
         },
     },
     computed: {},

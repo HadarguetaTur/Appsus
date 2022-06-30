@@ -21,7 +21,6 @@ function get(entityType, entityId) {
 
 //create new item
 function post(entityType, newEntity) {
-    newEntity.id = _makeId()
     return query(entityType)
         .then(entities => {
             entities.push(newEntity);

@@ -9,14 +9,15 @@ export const mailService = {
     remove,
     save,
     get,
-    getUser
+    getUser,
+    createEmail
 };
 
 function query() {
     return storageService.query(EMAIL_KEY)
 }
 
-function remove() {
+function remove(mailId) {
     return storageService.remove(EMAIL_KEY, mailId)
 }
 
@@ -25,24 +26,23 @@ function get(mailId) {
 }
 
 function save(mail) {
-    if (mail.id) return storageService.put(EMAIL_KEY, mail)
-    else return storageService.post(EMAIL_KEY, mail)
+    return storageService.post(EMAIL_KEY, mail)
 }
 
 function _createEmails() {
     let mails = utilService.loadFromStorage(EMAIL_KEY);
     if (!mails || !mails.length) {
         mails = [];
-        mails.push(_createEmail());
-        mails.push(_createEmail());
-        mails.push(_createEmail());
-        mails.push(_createEmail());
+        mails.push(createEmail());
+        mails.push(createEmail());
+        mails.push(createEmail());
+        mails.push(createEmail());
         utilService.saveToStorage(EMAIL_KEY, mails);
     }
     return mails;
 }
 
-function _createEmail(subject = 'demo subject', body = 'demo body', sentAt = Date.now(), to = 'demo@email', from = 'demo name') {
+function createEmail(subject = 'demo subject', body = 'demo body', sentAt = Date.now(), to = 'demo@email', from = 'demo name') {
     const email = {
         id: utilService.makeId(),
         subject,
