@@ -13,6 +13,8 @@
 @import 'cmps/app-footer.css';
 @import 'cmps/app-header.css';
 @import '/css/mail-compose.css';
+@import 'cmps/note-card.css';
+@import 'cmps/adding-from.css';
 
 
 /* Media Queries */
