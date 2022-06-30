@@ -1,57 +1,72 @@
 import { notesService } from "../services/note.service.js";
+import noteList from "../cmps/note-list.cmp.js";
+
 
 
 export default {
     template: `
-        <section class="note-edit">
-            <form @change.prevent="save" class="flex adding-from column">
-                <input @click="isClick = !isClick" type="text" v-model="noteToAdd.title" placeholder="what on your mind?">
-                <div v-if="isClick" class="flex column">
-                <textarea v-model="noteToAdd.det"  rows="4" cols="50" required></textarea>
-                <div>     
-            <div class="tools flex">
-            <button>close</button>
-            <input type="color">
-            <input type="color">
-            <input type="file" @change="onFileChange(note, $event)">
-            </div>
-                </div>
-                </div>
-            </form>
-        </section>
+    <section class="note-edit">
+    <input type="text" v-model="this.newNote.info.title" placeholder="what on your mind? "> 
+    
+    <input type="checkbox" id="todo" value="note-todo" v-model="newNote.type">
+    <label for="todo">todo</label>
+    <input type="checkbox" id="txt"  value="note-txt" v-model="newNote.type">
+    <label for="txt">text</label>
+    <input type="checkbox" id="img"  value="note-img" v-model="newNote.type">
+    <label for="img">image</label>
+    <input type="checkbox" id="video" value="note-video" v-model="newNote.type">
+    <label for="img">video</label>
+    <br>
+    <textarea v-model="this.newNote.info.det" rows="4" cols="50" required></textarea>  
+    <button @click="save">save</button>
+
+</section>
     `,
+    components: {
+        noteList,
+    },
+    el: '...',
     data() {
         return {
-            isClick:false,
-            noteToAdd:{
-                title: null,
-                det: null
+            newNote: {
+                type: [],
+                isPinned: false,
+                info: {
+                    label: '',
+                    title: '',
+                    det: '',
+                    url: '',
+                },
+                style: {
+                    backgroundColor: ''
+                },
             }
-            
+
+
+
+
         };
     },
     created() {
     },
     methods: {
         save() {
-        let newNote=notesService.getNewNote()
-        newNote.info=this.noteTaAdd
-         notesService.saveNote(newNote).then(
-            console.log('add')
+            notesService.saveNote(this.newNote).then(
+                console.log(console.log(this.newNote))
+            )
 
-         )
+
+
         },
-        adit(id) {
-            this.$emit('remove', id);
-        },
-        onFileChange(note, $event){
 
-        }
 
-    
+
+
+
+
     },
     computed: {
-       
-   
+
+
     }
 };

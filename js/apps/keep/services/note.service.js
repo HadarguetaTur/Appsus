@@ -38,8 +38,11 @@ function getNewNote() {
         type: '',
         isPinned: false,
         info: {
+            label:[],
             title:'',
             det:'',
+            url:'',
+            
         },
         style: {
             backgroundColor: ''
@@ -56,18 +59,25 @@ function __createNots() {
                 type: "note-txt",
                 isPinned: true,
                 info: {
-                    txt: "Fullstack Me Baby!"
+                    label: "Get my stuff together",
+                    title: "Fullstack Me Baby!",
+                    det:'',
+                    url: "https://ibb.co/rwbyS2q",
+
                 },
                 style: {
-                    backgroundColor: ''
+                    backgroundColor: 'red'
                 }
             },
             {
                 id: "n102",
                 type: "note-img",
+                isPinned:false,
                 info: {
+                    label: "Get my stuff together",
+                    title: "Bobi and Me",
+                    det:'',
                     url: "https://ibb.co/rwbyS2q",
-                    title: "Bobi and Me"
                 },
                 style: {
                     backgroundColor: ''
@@ -76,12 +86,15 @@ function __createNots() {
             {
                 id: "n103",
                 type: "note-todos",
+                isPinned:false,
                 info: {
                     label: "Get my stuff together",
-                    todos: [
+                    title: "Bobi and Me",
+                    det: [
                         { txt: "Driving liscence", doneAt: null },
                         { txt: "Coding power", doneAt: 187111111 }
-                    ]
+                    ],
+                    url: "",
                 },
                 style: {
                     backgroundColor: ''
@@ -90,13 +103,15 @@ function __createNots() {
             {
                 id: "n104",
                 type: "note-video",
+                isPinned:false,
                 info: {
                     label: "Get my stuff together",
-                    url: "https://ibb.co/rwbyS2q",
-                    todos: [
+                    title: "Bobi and Me",
+                    det: [
                         { txt: "Driving liscence", doneAt: null },
                         { txt: "Coding power", doneAt: 187111111 }
-                    ]
+                    ],
+                    url: "https://ibb.co/rwbyS2q",
                 },
                 style: {
                     backgroundColor: ''

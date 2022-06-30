@@ -4,11 +4,12 @@ import notePreview from "./note-preview.cmp.js";
 export default {
     props: ["notes"],
     template: `
-   <section class="note-list">
-        <div class="note-card">
-              <div v-for="note in notes" :key="note.id" class="notes-preview-container" @click="select(note)">
+   <section  class="note-list">
+        <div  class="note-card">
+              <div v-for="note in notes" :key="note.id" class="notes-preview-container" this.backgroundColor="note.style.backgroundColor">
               <button @click="remove(note.id)">X</button>
                   <note-preview :note="note"/>
+              </div>
               </div>
         </div>
       </section>     
@@ -23,6 +24,7 @@ export default {
   
     data() {
       return {
+        backgroundColor:' '
 
       };
     },
@@ -36,6 +38,11 @@ export default {
         }
  
     },
-    computed: {},
-  };
-  
+    computed: {
+      styleObject() {
+        return {
+          backgroundColor: this.backgroundColor
+        }
+    },
+  }
+}
