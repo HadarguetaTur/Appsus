@@ -11,7 +11,9 @@ export const notesService = {
     saveNote,
     getNewNote,
     get,
-
+    loadImageFromInput,
+    getNewId,
+    
 
 };
 
@@ -32,17 +34,21 @@ function saveNote(note) {
     return storageService.post(NOTES_KEY, note)
 }
 
+function getNewId() {
+    return utilService.makeId()
+}
+
 function getNewNote() {
     return {
         id: utilService.makeId(),
         type: '',
         isPinned: false,
         info: {
-            label:[],
-            title:'',
-            det:'',
-            url:'',
-            
+            label: [],
+            title: '',
+            det: '',
+            url: '',
+
         },
         style: {
             backgroundColor: ''
@@ -61,7 +67,7 @@ function __createNots() {
                 info: {
                     label: "Get my stuff together",
                     title: "Fullstack Me Baby!",
-                    det:'',
+                    det: '',
                     url: "https://ibb.co/rwbyS2q",
 
                 },
@@ -72,11 +78,11 @@ function __createNots() {
             {
                 id: "n102",
                 type: "note-img",
-                isPinned:false,
+                isPinned: false,
                 info: {
                     label: "Get my stuff together",
                     title: "Bobi and Me",
-                    det:'',
+                    det: '',
                     url: "https://ibb.co/rwbyS2q",
                 },
                 style: {
@@ -85,8 +91,8 @@ function __createNots() {
             },
             {
                 id: "n103",
-                type: "note-todos",
-                isPinned:false,
+                type: "note-todo",
+                isPinned: false,
                 info: {
                     label: "Get my stuff together",
                     title: "Bobi and Me",
@@ -102,8 +108,8 @@ function __createNots() {
             },
             {
                 id: "n104",
-                type: "note-video",
-                isPinned:false,
+                type: "note-todo",
+                isPinned: false,
                 info: {
                     label: "Get my stuff together",
                     title: "Bobi and Me",
@@ -125,3 +131,17 @@ function __createNots() {
     return notes;
 
 }
+
+function loadImageFromInput(ev) {
+    var reader = new FileReader()
+    reader.onload = function (event) {
+        var img = new Image()
+        img.src = event.target.result
+
+    }
+    reader.readAsDataURL(ev.target.files[0])
+    console.log(img)
+    return img
+}
+
+

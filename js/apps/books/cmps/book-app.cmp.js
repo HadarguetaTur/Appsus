@@ -1,6 +1,6 @@
-// import { bookService } from "../services/book-service.js"
-// import bookList from "../cmps/book-list.cmp.js"
-// import bookFilter from "../cmps/book-filter.cmp.js"
+import { bookService } from "../services/book-service.js"
+import bookList from "../cmps/book-list.cmp.js"
+import bookFilter from "../cmps/book-filter.cmp.js"
 
 export default {
     template: `
@@ -10,8 +10,8 @@ export default {
         </section>
     `,
     components: {
-        // bookList,
-        // bookFilter
+        bookList,
+        bookFilter
     },
     data() {
         return {
@@ -20,8 +20,8 @@ export default {
         }
     },
     created() {
-        // bookService.query()
-        //     .then(books => this.books = books)
+        bookService.query()
+            .then(books => this.books = books)
     },
     methods: {
         setFilter(filter) {
