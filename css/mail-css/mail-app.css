@@ -1,12 +1,43 @@
-.mail-app-container{
-    justify-content: space-between;    
-}
-.main-layout{
-    flex-grow: 1.5;
-}
+
 .side-bar-layout{
+    width: 20%;
     display: flex;
+    flex:2;
     flex-direction: column;
-    padding-right: 2rem;
     border-right: 2px solid black;
+}
+main{
+    max-width: 100%;
+}
+.mail-app-container >*{
+    flex: 0 0 auto;
+}
+.side-bar-layout button{
+    width: 100%;
+    margin: 2px 0;
+    border: none;
+    background-color: rgb(251, 251, 251);
+    text-align: start;
+    border-radius: 10px;
+    transition: 0.2s;
+
+}
+
+.side-bar-layout .list-group-item:hover{
+    background-color: rgba(122, 128, 128, 0.189);
+}
+
+.side-bar-layout .add-btn{
+    width: 70%;
+    font-size: 1em;
+    border-radius: 20px;
+    border: 1px solid lightgrey;
+    box-shadow: 0px 1px 2px;
+    margin-left: 0.4em;
+}
+.side-bar-layout .add-btn:hover{
+    box-shadow: 0px 1px 5px;
+}
+.side-bar-layout .fa-plus{
+    color: blue;
 }

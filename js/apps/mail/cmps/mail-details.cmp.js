@@ -6,7 +6,7 @@ export default {
     <h2>subject: {{mail.subject}}</h2>
     <h4>sent from: {{mail.from}}</h4>
     <p>{{mail.body}}</p>
-    <router-link to="/mail">
+    <router-link to="/mail/inbox">
         <button @click="removeMail">delete</button>
         <button>Back to mails</button>
     </router-link>
@@ -21,13 +21,18 @@ export default {
         const mailId = this.$route.params.mailId;
         mailService.get(mailId).then(mail => {
             this.mail = mail;
-            console.log(this.mail);
             this.mail.isRead = true;
         });
     },
     methods: {
         removeMail() {
-            mailService.remove(this.mail.id)
+            if (this.mail.type === 'trash') {
+                mailService.remove(this.mail.id)
+                return
+            }
+            this.mail.type = 'trash'
+            mailService.save(this.mail)
+            console.log(this.mail.type)
         },
     },
     computed: {},
