@@ -1,0 +1,36 @@
+.extended-preview {
+    position: relative;
+    background-color: brown;
+    font-family: "Spicy Rice", cursive;
+}
+
+.fa-star:before {
+    color: lightgray;
+}
+
+input:checked + .fa-star::after {
+    color: rgb(243, 231, 56);
+}
+
+.mail-preview-checks-container {
+    padding: 0 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.mail-subject-preview {
+    font-weight: 700;
+}
+
+.mail-preview {
+    padding: 0.5em 0.5em;
+    font-size: 0.7rem;
+    flex-shrink: 2;
+}
+span .mail-body-preview{
+    font-size: 0.7em;
+}
+.mail-preview-extension{
+    max-width: 500px;
+}

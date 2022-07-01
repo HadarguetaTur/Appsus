@@ -1,8 +1,28 @@
-.unread{
+.unread {
     font-weight: 700;
 }
 
-.mail-preview-checks-container{
-    position: absolute;
-    left: 100px;
+.mail-list-item {
+    border-bottom: 1px solid gray;
+}
+
+.mail-list-item:first-child {
+    border-top: 1px solid gray;
+}
+
+.mail-list-item>* {
+    text-decoration: none;
+    color: black;
+    margin: 0.5em 0;
+}
+
+a:visited {
+    color: black;
+}
+
+#star {
+    color: #FFC107;
+    border: 0;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
 }

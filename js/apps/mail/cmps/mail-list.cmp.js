@@ -4,10 +4,10 @@ export default {
 
     props: ['mails'],
     template: `
-      <section class="mail-list">
-            <ul class="clean-list">
+      <section>
+            <ul class="clean-list mail-list">
                 <li v-for="mail in mails" :key="mail.id" class="mail-list-item" :class="mail.isRead" >
-                    <router-link :to="'/mail/' + mail.id"> <mail-preview :mail="mail" :mails="mails" /> </router-link>
+                    <router-link :to="'/mail/' + mail.type + '/' + mail.id"> <mail-preview :mail="mail" :mails="mails" /> </router-link>
                 </li>
             </ul>
         </section>

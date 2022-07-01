@@ -7,43 +7,37 @@ export default {
     template: ` 
     <section class="mail-app-container flex ">
         <div class="side-bar-layout flex column">
-            <div class="logo-container">
-                <span class="mail-logo">logo</span>
-                <span class="">Nmail</span>
-            </div>
-            <button @click="addMail">+</button>
-            <mail-folder-list/>
+            <button class="add-btn" @click="addMail"><i class="fa-solid fa-plus"></i> compose</button>
+            <mail-folder-list @change="this.getMailType" :mailType="this.mailType"/>
         </div>
-    <main class="main-layout">
-            <div class="main-header-layout flex coloumn "> 
-                <input type="search" v-model="this.searchVal" placeholder="search mail">
-                <div class="settings-header">
-                    <button>about</button>
-                    <button>settings</button>
-                </div>
-            </div>
-            <mail-list class="main-list" :mails="renderMails"/>
+        <main class="main-layout">
+           
+            <mail-list v-if="this.mails" class="main-list" :mails="renderMails"/>
             <mail-compose v-if="this.newMail"  @closeMail="closeMail" :newMail="this.newMail" :mails="this.mails"/>
         </main>
        
     </section>
    `,
+    props: ['type'],
     data() {
         return {
             mails: null,
             selectedMail: null,
             newMail: false,
-            searchVal: ""
+            searchVal: "",
+            mailType: "",
         };
     },
     created() {
-        console.log("here")
-        this.mails = mailService.query().then(res => this.mails = res)
+        if (this.$route.params.mailType === ":mailType") this.$route.params.mailType = "inbox";
+        this.mailType = this.$route.params.mailType
+        mailService.query().then(res => this.mails = res)
+    },
 
-    },
-    mounted() {
-    },
     methods: {
+        getMailType() {
+            this.mailType = this.$route.params.mailType
+        },
         showEmails(email) {
             this.selectedMail = email
         },
@@ -52,19 +46,29 @@ export default {
         },
         closeMail() {
             this.newMail = false;
+        },
+        mailFilterByType() {
+            const filterdMails = this.mails.filter((mail) => {
+                (mail.type === this.mailType) ||
+                    console.log(mail.type)
+            })
+            console.log(filterdMails)
+            return filterdMails
         }
 
     },
     computed: {
         renderMails() {
-            console.log(this.searchVal)
-            if (this.searchVal === "") return this.mails
-            const filterdMails = this.mails.filter((mail) =>
-                mail.subject.includes(this.searchVal)
-            )
+            // if (this.searchVal === "") return this.mails
+            console.log(this.mails)
+            const filterdMails = this.mails.filter((mail) => {
+                console.log(this.mailType)
+                return (mail.type === this.mailType)
+            })
             console.log(filterdMails)
             return filterdMails
-        }
+        },
+
     },
     unmounted() { },
     components: {

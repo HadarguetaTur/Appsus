@@ -16,14 +16,13 @@ const routes = [
         component: keepMain,
     },
     {
-        path: '/mail',
-        component: mainMail
+        path: '/mail/:mailType',
+        component: mainMail,
     },
     {
-        path: '/mail/:mailId',
-        component: mailDetails
+        path: '/mail/:mailType/:mailId',
+        component: mailDetails,
     },
-
 
 
 ]

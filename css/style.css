@@ -12,7 +12,6 @@
 @import 'cmps/app-home.css';
 @import 'cmps/app-footer.css';
 @import 'cmps/app-header.css';
-@import 'mail-css/mail-compose.css';
 @import 'cmps/note-card.css';
 @import 'cmps/adding-from.css';
 
@@ -23,3 +22,5 @@
 /* Mail App */
 @import 'mail-css/mail-app.css';
 @import 'mail-css/mail-list.css';
+@import 'mail-css/mail-compose.css';
+@import 'mail-css/mail-preview.css';

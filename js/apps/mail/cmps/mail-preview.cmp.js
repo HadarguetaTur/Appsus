@@ -2,21 +2,37 @@ export default {
     props: ['mail'],
     template: `
      <section v-if="mail" class="mail-preview flex">
-        <div class="mail-preview-checks-container" @click.stop>
-            <input type="checkbox" id="read" />
-            <input type="checkbox" class="fa fa-star" value="1"/>
+     
+        <div class="mail-preview-checks-container flex column" @click.stop>
+            <input type="checkbox" class="read-check" id="read" hidden />
+            <label for="read"><i class="fa fa-envelope" :class="{ read : isRead }"></i></label>
+            <input type="checkbox" class="star-check" id="star" hidden/>
+            <label for="star"><i class="fa fa-star"></i></label>
         </div>
-        <span class="mail-subject-preview">{{mail.subject}}</span>
-        <span class="mail-star-preview">{{mail.to}}</span>
-        <span class="mail-sent-preview">{{mail.sentAt}}</span>
-        
+        <div class="mail-preview-extension">
+            <input  @click.stop type="checkbox"  id="extended-preview" hidden>
+            <span >
+                <label @click.stop for="extended-preview" class="extended-preview">
+                <h4 class="mail-body-preview"> {{mail.body}} </h4> <h4 class="mail-subject-preview">{{mail.subject}}</h4>
+                <span class="mail-time-preview">{{mail.sentAt}}</span>
+                </label>
+            </span>
+            <p>{{mail.subject}}</p>
+            <p>{{mail.body}}</p>
+        </div>
         </section>
 `,
     data() {
-        return {};
+        return {
+            isExtended: false,
+            activeEl: 0
+        };
     },
     created() { console.log("hey") },
-    methods: {},
+    methods: {
+        isRead() {
+        },
+    },
     computed: {},
     unmounted() { },
 };
