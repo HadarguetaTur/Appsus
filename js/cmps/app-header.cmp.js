@@ -8,6 +8,7 @@ export default {
                 <router-link to="/">Home</router-link>|
                 <router-link to="/mail/:mailType">mail</router-link>|
                 <router-link to="/Keep">Keep</router-link>|
+                <router-link to="/books">books</router-link>|
      
             </nav>
         </header>

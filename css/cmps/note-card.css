@@ -1,7 +1,10 @@
 .note-card{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    justify-content: center;
+    margin: 0 auto; 
+    display: flex;
+    flex-wrap: wrap; 
+    object-fit: cover;
+    align-items: flex-end;
     
     
 }
@@ -13,10 +16,13 @@
     border-radius: 1rem;
     box-shadow: 1px 1px 1px 1px #000;
     padding: 2em;
+ 
+    
 }
 
-.txt{
+.note-txt{
     background-color:#e3ad77 ;
+
 
 }
 
@@ -24,11 +30,22 @@
     background-color: #e8b1f2 ;
 }
 
-.to-do{
+.note-todos{
     background-color: rgb(245, 133, 133);
 }
 
 
-.video{
+.note-video{
     background-color: lightseagreen;
+}
+.pinned-note{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas: "pin pin pin pin ";
+}
+
+.pin{
+    background-color: aquamarine;
+    
+       
 }

@@ -11,7 +11,9 @@ export const notesService = {
     saveNote,
     getNewNote,
     get,
-
+    loadImageFromInput,
+    getNewId,
+    
 
 };
 
@@ -32,14 +34,21 @@ function saveNote(note) {
     return storageService.post(NOTES_KEY, note)
 }
 
+function getNewId() {
+    return utilService.makeId()
+}
+
 function getNewNote() {
     return {
         id: utilService.makeId(),
         type: '',
         isPinned: false,
         info: {
-            title:'',
-            det:'',
+            label: [],
+            title: '',
+            det: '',
+            url: '',
+
         },
         style: {
             backgroundColor: ''
@@ -56,18 +65,25 @@ function __createNots() {
                 type: "note-txt",
                 isPinned: true,
                 info: {
-                    txt: "Fullstack Me Baby!"
+                    label: "Get my stuff together",
+                    title: "Fullstack Me Baby!",
+                    det: '',
+                    url: "https://ibb.co/rwbyS2q",
+
                 },
                 style: {
-                    backgroundColor: ''
+                    backgroundColor: 'red'
                 }
             },
             {
                 id: "n102",
                 type: "note-img",
+                isPinned: false,
                 info: {
+                    label: "Get my stuff together",
+                    title: "Bobi and Me",
+                    det: '',
                     url: "https://ibb.co/rwbyS2q",
-                    title: "Bobi and Me"
                 },
                 style: {
                     backgroundColor: ''
@@ -75,13 +91,16 @@ function __createNots() {
             },
             {
                 id: "n103",
-                type: "note-todos",
+                type: "note-todo",
+                isPinned: false,
                 info: {
                     label: "Get my stuff together",
-                    todos: [
+                    title: "Bobi and Me",
+                    det: [
                         { txt: "Driving liscence", doneAt: null },
                         { txt: "Coding power", doneAt: 187111111 }
-                    ]
+                    ],
+                    url: "",
                 },
                 style: {
                     backgroundColor: ''
@@ -89,14 +108,16 @@ function __createNots() {
             },
             {
                 id: "n104",
-                type: "note-video",
+                type: "note-todo",
+                isPinned: false,
                 info: {
                     label: "Get my stuff together",
-                    url: "https://ibb.co/rwbyS2q",
-                    todos: [
+                    title: "Bobi and Me",
+                    det: [
                         { txt: "Driving liscence", doneAt: null },
                         { txt: "Coding power", doneAt: 187111111 }
-                    ]
+                    ],
+                    url: "https://ibb.co/rwbyS2q",
                 },
                 style: {
                     backgroundColor: ''
@@ -110,3 +131,17 @@ function __createNots() {
     return notes;
 
 }
+
+function loadImageFromInput(ev) {
+    var reader = new FileReader()
+    reader.onload = function (event) {
+        var img = new Image()
+        img.src = event.target.result
+
+    }
+    reader.readAsDataURL(ev.target.files[0])
+    console.log(img)
+    return img
+}
+
+
