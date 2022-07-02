@@ -8,10 +8,12 @@ import notesFilter from "../cmps/note-filter.cmp.js";
 export default {
     template: `
     <section class="note-app main">
+
       <notes-filter @filtered="filterNote" />
-      <keep-add @save="saveNote"/>   
-      <note-list :notes="renderNotes" @remove="removeNotes" @copy="copy"/>
-      <note-list :notes="renderNotes" @remove="removeNotes" @copy="copy"/>
+      <keep-add @save="saveNote"/>       
+      <note-list v-if="this.notes" :notes="this.renderNotes(notPin)" @remove="removeNotes" @copy="copy"/>
+      <note-list v-if="this.notes" :notes="this.renderNotes(pin)" @remove="removeNotes" @copy="copy"/>
+
     </section>
   `,
     components: {
@@ -28,7 +30,6 @@ export default {
             filterBy: {
                 txt: null,
                 type:null,
-                isPinned:true,
             },
             selectedNote: null,
         };
@@ -45,15 +46,33 @@ export default {
                 })
 
         },
+        renderNotes(notes) {
+            if (!this.filterBy) return notes;
+            if (this.filterBy.txt) {
+                let regex = new RegExp(this.filterBy.txt, "i")
+                console.log(regex)
+                notes = notes.filter((note) => regex.test(note.info.title))
+            }
+            if (this.filterBy.type) {
+
+                let regexType = new RegExp(this.filterBy.type, "i")
+                notes = notes.filter((note) => regexType.test(note.type))
+            }
+            return notes
+
+        },
         copy(note) {
-            this.notes.push(note)
+           let newNote = JSON.parse(JSON.stringify(note));
+
+            this.notes.push(newNote)
             console.log(this.notes)
         },
         selectNote(note) {
             this.selectedNote = note;
         },
         saveNote(note) {
-            this.notes.push(note)
+            let newNote = JSON.parse(JSON.stringify(note));
+            this.notes.push(newNote)
 
         },
         filterNote(filterBy) {
@@ -62,22 +81,16 @@ export default {
         },
     },
     computed: {
-        renderNotes() {
-            let notes = this.notes
-            console.log(notes)
-            if (!this.filterBy) return notes;
-            if (this.filterBy.txt) {
-                let regex = new RegExp(this.filterBy.txt, "i")
-                console.log(regex)
-                notes = notes.filter((note) => regex.test(note.info.title))
-            }
-            if (this.filterBy.type) {
-                console.log(this.filterBy.type)
-                let regexType = new RegExp(this.filterBy.type, "i")
-                notes = notes.filter((note) => regexType.test(note.type))
-            }
-            return this.notes
-
+   
+        pin(){
+           
+            const pinned=this.notes.filter((note)=>note.isPinned)
+            return pinned
         },
+        notPin(){
+           
+            const pinned=this.notes.filter((note)=>!note.isPinned)
+            return pinned
+        }
     },
 };

@@ -14,10 +14,30 @@ export default {
               'note-video':note.type==='note-video',  
               pin:!note.isPinned,  
             }" >
-              <button @click="remove(note.id)">X</button>
-              <button @click="note.isPinned=!note.isPinned">📌</button>
-              <button @click="dupp(note)">📄</button>
-                  <note-preview :note="note"/>
+            <i @click="note.isPinned=!note.isPinned" title="Pin note" class='fas fa-thumbtack'></i>
+            <i @click="dupp(note)" title="Copy note" class='fas fa-copy'></i>
+            <i @click="remove(note.id)"  title="Delete note" class='far fa-trash-alt'></i>
+            <span class="color-picker-dot" @click="emitChangeColor('lightblue')"  
+            title="lightblue" style="background-color:lightblue" >
+            </span>
+            <span class="color-picker-dot" @click="emitChangeColor('palegoldenrod')" 
+             title="palegoldenrod" style="background-color:palegoldenrod">
+            </span>
+            <span class="color-picker-dot" @click="emitChangeColor('lightgreen')"
+            title="lightgreen" style="background-color:lightgreen">
+            </span>
+            <span class="color-picker-dot" @click="emitChangeColor('lightpink')" 
+           title="lightpink" style="background-color:lightpink">
+           </span>
+           <span class="color-picker-dot" @click="emitChangeColor('lightcyan')" 
+           title="lightcyan" style="background-color:lightcyan">
+            </span>
+            <span class="color-picker-dot" @click="emitChangeColor('white')" 
+           title="white" style="background-color:white">
+          </span>
+            <note-preview :note="note"/>
+
+                  
               </div>
         </div>
       </section>     
@@ -36,6 +56,7 @@ export default {
     };
   },
   methods: {
+    
     remove(id) {
       this.$emit('remove', id);
     },
