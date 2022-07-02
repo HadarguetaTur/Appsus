@@ -68,7 +68,7 @@ function __createNots() {
                     label: "Get my stuff together",
                     title: "Fullstack Me Baby!",
                     det: '',
-                    url: "https://ibb.co/rwbyS2q",
+                    
 
                 },
                 style: {
@@ -82,8 +82,8 @@ function __createNots() {
                 info: {
                     label: "Get my stuff together",
                     title: "Bobi and Me",
-                    det: '',
-                    url: "https://ibb.co/rwbyS2q",
+                    det:"https://www.photo-art.co.il/wp-content/uploads/2018/09/J75_5568-1.jpg" ,
+                    
                 },
                 style: {
                     backgroundColor: ''
@@ -100,7 +100,7 @@ function __createNots() {
                         { txt: "Driving liscence", doneAt: null },
                         { txt: "Coding power", doneAt: 187111111 }
                     ],
-                    url: "",
+                  
                 },
                 style: {
                     backgroundColor: ''
@@ -117,7 +117,7 @@ function __createNots() {
                         { txt: "Driving liscence", doneAt: null },
                         { txt: "Coding power", doneAt: 187111111 }
                     ],
-                    url: "https://ibb.co/rwbyS2q",
+        
                 },
                 style: {
                     backgroundColor: ''

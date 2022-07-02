@@ -28,6 +28,11 @@
 
 .note-img{
     background-color: #e8b1f2 ;
+    
+}
+
+.note-img img{
+    width: 16em;
 }
 
 .note-todos{
@@ -49,3 +54,5 @@
     
        
 }
+
+

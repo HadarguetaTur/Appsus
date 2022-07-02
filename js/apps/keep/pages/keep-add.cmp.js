@@ -28,7 +28,7 @@ export default {
     },
     data() {
         return {
-            placeholderTxt:'',
+            placeholderTxt: '',
             newNote: {
                 type: [],
                 isPinned: false,
@@ -36,7 +36,7 @@ export default {
                     label: '',
                     title: '',
                     det: '',
-                    url: '',
+                   
                 },
                 style: {
                     backgroundColor: ''
@@ -50,22 +50,36 @@ export default {
     },
     methods: {
         saveNote() {
+            debugger
+            if (this.newNote.type === 'note-video') {
+                let url=this.newNote.info.det
+                const str_href = url.toString()
+                console.log(str_href)
+                // var video_id = str_href.search.split('v=')[1];
+                // var ampersandPosition = video_id.indexOf('&');
+                // if (ampersandPosition != -1) {
+                //     video_id = video_id.substring(0, ampersandPosition);
+                // }
+                // this.newNote.info.det = `https://www.youtube.com/embed/${video_id}`
+                
+
+            }
             notesService.saveNote(this.newNote)
-            this.$emit('save',this.newNote );
+            this.$emit('save', this.newNote);
         },
         setKeepType(keepType) {
             this.newNote.type = keepType
             if (this.newNote.type === 'note-todo') this.placeholderTxt = 'Enter to-do separated list'
-           else if (this.newNote.type === 'note-img') this.placeholderTxt = 'Enter an image Url'
-           else if (this.newNote.type === 'note-video') this.placeholderTxt = 'Enter a video Url'
-           else if (this.newNote.type === 'note-txt') this.placeholderTxt = 'Enter any text'
+            else if (this.newNote.type === 'note-img') this.placeholderTxt = 'Enter an image Url'
+            else if (this.newNote.type === 'note-video') this.placeholderTxt = 'Enter a video Url'
+            else if (this.newNote.type === 'note-txt') this.placeholderTxt = 'Enter any text'
             if (this.keep.data) this.saveKeep()
         },
 
     },
     mounted() {
 
-      },
+    },
     computed: {
 
     }

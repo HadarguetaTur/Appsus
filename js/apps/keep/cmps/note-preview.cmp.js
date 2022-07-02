@@ -5,23 +5,29 @@ export default {
   props: ["note"],
   template:
     `
-    <div  class="notes-preview">  
+    <div v-if="note" class="notes-preview">  
      <h3>{{note.info.title}}</h3> 
      <h3>{{note.type}}</h3> 
      <h3>{{note.info.label}}</h3> 
-     <h3 v-if="note.type!='note-todos'">{{note.info.det}}</h3> 
-     <div v-if="note.type==='note-todos'">
-         <li v-for="todo in note.info.det">
-               {{todo.txt}}
-        </li>
+     <h3 v-if="note.type==='note-txt'">{{note.info.det}}</h3> 
+     <h3 v-if="note.type==='note-todos'">
+     <li v-for="todo in 'note.info.det'">
+         {{ todo }}
+     </li>
+     </h3>  
+    <img v-if="note.type==='note-img'" :src="note.info.det"  alt="">
+    <h3 v-if="note.type==='note-video'" >
+    <iframe  src="note.info.det"
+     allowfullscreen></iframe>
 
-     <h3>{{note.info.url}}</h3>      
+
+     
     </div>
   `,
   data() {
     return {
       url: '',
-      element: null,
+  
 
     };
   },
@@ -29,7 +35,6 @@ export default {
 
   },
   computed: {
-          
 
   },
 };
