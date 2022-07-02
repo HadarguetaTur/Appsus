@@ -16,11 +16,13 @@
 @import 'cmps/adding-from.css';
 
 
-/* Media Queries */
-@import 'mq/mq.css';
 
 /* Mail App */
 @import 'mail-css/mail-app.css';
 @import 'mail-css/mail-list.css';
 @import 'mail-css/mail-compose.css';
 @import 'mail-css/mail-preview.css';
+@import 'mail-css/mail-header.css';
+
+/* Media Queries */
+@import 'mq/mq.css';

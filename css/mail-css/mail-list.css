@@ -2,12 +2,20 @@
     font-weight: 700;
 }
 
+.mail-list{
+    display: flex;
+    width: 80%;
+}
+
 .mail-list-item {
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid lightgray;
+    border-left:1px solid lightgray; ;
+    border-right:1px solid lightgray; ;
+    display: flex;
 }
 
 .mail-list-item:first-child {
-    border-top: 1px solid gray;
+    border-top: 1px solid lightgray;
 }
 
 .mail-list-item>* {
@@ -16,13 +24,13 @@
     margin: 0.5em 0;
 }
 
-a:visited {
-    color: black;
-}
 
-#star {
-    color: #FFC107;
-    border: 0;
-    clip: rect(1px 1px 1px 1px);
-    clip: rect(1px, 1px, 1px, 1px);
+
+.list-item-extension{
+    font-size: 1em;
+    padding: 0 2rem 0 0.7rem;
+}
+.list-subject-extension{
+    font-weight: 600;
+    font-size:1.2em ;
 }

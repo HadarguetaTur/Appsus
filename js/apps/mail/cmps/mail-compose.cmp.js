@@ -2,15 +2,11 @@ import { mailService } from "../services/mail-service.js"
 import { eventBus } from "../services/event-bus.service.js";
 export default {
     template: `
-    <section class="mail-compose flex">
+    <section class="mail-compose flex"  @showMsg="created">
         <h3 class="composed-msg-header" >New message</h3>
-        <input v-model="mail.to" type="text" placeholder="send to">
+        <input v-model="mail.to" type="text" placeholder="send to nimrod@appsus.com for inbox">
         <input v-model="mail.subject" type="text" placeholder="subject">
-        <nav>
-            <button @click="exit" class="composed-msg-exit">trash</button>
-            <button class="composed-msg-enLarge" @showMsg="success">large</button>
-            <button class="composed-msg-save" @click="saveMail" >send</button>
-        </nav>
+       
         <!-- <form enctype="multipart/form-data" novalidate>
         <h1>Upload images</h1>
         <div class="dropbox">
@@ -19,6 +15,11 @@ export default {
         </div>
       </form> -->
          <textarea v-model="mail.body" class="composed-text" rows="15" cols="30" ></textarea>
+         <nav>
+            <button @click="exit" class="composed-msg-exit">back</button>
+            <button class="composed-msg-enLarge">large</button>
+            <button class="composed-msg-save" @click="saveMail" >send</button>
+        </nav>
       
        
     </section>
@@ -27,26 +28,26 @@ export default {
     data() {
         return {
             mail: null,
-            mailLink: null
+            mailLink: null,
+            interval: 0
         };
     },
     created() {
-        this.mail = mailService.createEmail("", "", "", Date.now(), "")
+        this.mail = mailService.createEmail("", "", "", "")
         console.log(this.mails)
-        setInterval(() => {
-            this.mail.isDraft = true
+        this.interval = setInterval(() => {
             mailService.save(this.mail)
-            console.log("saved in drafts");
-        }, 2500);
+            eventBus.emit('showMsg', { txt: 'Saved to Draft' });
+        }, 5000);
     },
     methods: {
         saveMail() {
             this.checkType()
             console.log(this.mail)
             mailService.save(this.mail).then(mail => {
+                mail.type = 'draft'
                 this.mails.push(mail)
                 this.$emit('closeMail', this.newMail)
-                eventBus.emit('showMsg', { txt: 'Saved/Update successfully', type: 'success' });
             })
         },
         remove(id) {
@@ -54,6 +55,9 @@ export default {
         },
         exit() {
             this.mail.type = 'draft'
+            this.mail.isDraft = true
+            clearInterval(this.interval)
+            this.mails.push(this.mail)
             mailService.save(this.mail)
             this.$emit('closeMail', this.newMail)
         },

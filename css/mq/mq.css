@@ -1,0 +1,31 @@
+/* mobile */
+@media only screen and (max-width: 600px){
+    .main-layout{
+        flex-direction: column;
+        width: 100vw;
+    }
+   
+    div.side-bar-layout{
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+    li.mail-list-item{
+        border-right: none;
+        width: 100vw;
+    }
+    input.mail-search{
+        margin: 0;
+       align-self: center;
+       width: 8rem;
+    }
+    div.settings-header{
+        margin: 0;
+    }
+    div.mail-folder-list{
+        flex-direction: row;
+    }
+    .side-bar-layout .add-btn{
+        padding: 0 26%;
+    }
+}

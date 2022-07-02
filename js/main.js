@@ -6,7 +6,7 @@ import appHeader from './cmps/app-header.cmp.js'
 
 const options = {
     template: `
-        <section>
+        <section class="app-container flex column">
             <app-header />
             <router-view/>
             <app-footer />

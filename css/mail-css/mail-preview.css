@@ -1,15 +1,27 @@
-.extended-preview {
-    position: relative;
-    background-color: brown;
+
+
+.preview-layout >*{
+    margin: 0;
     font-family: "Spicy Rice", cursive;
+    font-size: 0.7rem;
+    padding-top: 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+div.preview-layout{
+    justify-content: space-between;
+    gap: 10px;
 }
 
 .fa-star:before {
-    color: lightgray;
+    color: rgb(236, 229, 229);
 }
 
-input:checked + .fa-star::after {
-    color: rgb(243, 231, 56);
+.yellow:before{
+    content: "\f005";
+    color: rgb(244, 212, 35);
 }
 
 .mail-preview-checks-container {
@@ -20,17 +32,29 @@ input:checked + .fa-star::after {
 }
 
 .mail-subject-preview {
-    font-weight: 700;
+    max-width: 40vw;
 }
 
-.mail-preview {
-    padding: 0.5em 0.5em;
-    font-size: 0.7rem;
-    flex-shrink: 2;
-}
-span .mail-body-preview{
-    font-size: 0.7em;
-}
 .mail-preview-extension{
-    max-width: 500px;
+    max-width: 700px;
+}
+#star:checked + label::before{
+    color: yellow;
+}
+mail-preview{
+    width: 100%;
+}
+.mail-time-preview{
+    padding-left: 1rem;
+}
+
+.mail-trash-preview{
+    cursor: pointer;
+    position: absolute;
+    right: 2.5rem
+}
+
+.low-opacity{
+    opacity: 0.5;
+    color: rgb(114, 109, 109);
 }

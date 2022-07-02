@@ -30,13 +30,11 @@ function post(entityType, newEntity) {
 }
 
 //create new items
-function postMany(entityType, newEntities) {
-    return query(entityType)
-        .then(entities => {
-            entities.push(...newEntities);
-            _save(entityType, entities)
-            return entities;
-        })
+async function postMany(entityType, newEntities) {
+    const entities = await query(entityType);
+    entities.push(...newEntities);
+    _save(entityType, entities);
+    return entities;
 }
 
 //update an item
@@ -50,7 +48,7 @@ function put(entityType, updatedEntity) {
         })
 }
 //remove an item
-function remove(entityType, entityId) {
+async function remove(entityType, entityId) {
     return query(entityType)
         .then(entities => {
             const idx = entities.findIndex(entity => entity.id === entityId);

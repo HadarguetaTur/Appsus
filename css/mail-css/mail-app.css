@@ -2,14 +2,15 @@
 .side-bar-layout{
     width: 20%;
     display: flex;
-    flex:2;
     flex-direction: column;
-    border-right: 2px solid black;
+    border-top: 1px solid lightgray;
 }
 main{
     max-width: 100%;
 }
+
 .mail-app-container >*{
+    font-family: "Spicy Rice", cursive;
     flex: 0 0 auto;
 }
 .side-bar-layout button{
@@ -29,15 +30,22 @@ main{
 
 .side-bar-layout .add-btn{
     width: 70%;
-    font-size: 1em;
+    font-size: 0.8em;
     border-radius: 20px;
     border: 1px solid lightgrey;
-    box-shadow: 0px 1px 2px;
+    box-shadow: 0px 1px 1px;
     margin-left: 0.4em;
+    align-items: center;
+    display: inline-flex;
+    color: rgb(157, 154, 154);
 }
 .side-bar-layout .add-btn:hover{
-    box-shadow: 0px 1px 5px;
+    box-shadow: 0px 1px 1px 1px ;
 }
 .side-bar-layout .fa-plus{
     color: blue;
+}
+
+.list-group-item{
+    padding: 5px 15px;
 }
