@@ -5,8 +5,8 @@ import bookFilter from "../cmps/book-filter.cmp.js"
 export default {
     template: `
         <section class="book-app">
-            <book-filter @filtered="setFilter" />
-            <book-list :books="booksToShow" />
+        <book-filter v-if="books" class="filter-books" @filtered="filterBook" :books="books"/>
+            <book-list v-if="this.books" :books="booksToShow" />
         </section>
     `,
     components: {
@@ -22,6 +22,7 @@ export default {
     created() {
         bookService.query()
             .then(books => this.books = books)
+            
     },
     methods: {
         setFilter(filter) {

@@ -1,10 +1,11 @@
-// import mailApp from "../books/cmps/book-app.cmp.js";
+import bookApp from "../books/cmps/book-app.cmp.js";
 
 export default {
     template: `
     <section class="main">
         <h3>book</h3>
-        <book-app />
+        <book-app/>
+
     </section>
    `,
     data() {
@@ -15,6 +16,7 @@ export default {
     computed: {},
     unmounted() { },
     components: {
-        // mailApp,
+        bookApp
+
     }
 };

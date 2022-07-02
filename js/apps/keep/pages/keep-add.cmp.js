@@ -5,17 +5,20 @@ import noteList from "../cmps/note-list.cmp.js";
 
 export default {
     template: `
+    
     <section class="note-edit">
     <input type="text" v-bind="this.newNote.info.title" placeholder="what on your mind? ">   
-    <select v-model="newNote.type" >
-    <option value="note-todo">todo</option>
-    <option value="note-txt" >text</option>
-    <option value="note-img">image</option>
-    <option value="note-video">video</option>
-    </select>
-    <textarea v-model="this.newNote.info.det" rows="4" cols="50" required></textarea>  
-    <input type="file"class="file-input btn" name="image" @change="onImgInput($event)">
-    <button @click="saveNote">save</button>
+    <textarea v-model="this.newNote.info.det" rows="4" cols="50" autofocus
+    :placeholder="placeholderTxt" required></textarea>  
+    <div class="div-canvas ">
+    </div>
+    <div class="btns-container-add">
+    <button class="add-keep-btn txt-keep-btn" @click="setKeepType('note-txt')"><i class="far fa-file-alt"></i></button>
+    <button class="add-keep-btn todo-keep-btn" @click="setKeepType('note-todo')"><i class="far fa-list-alt"></i></button>
+    <button class="add-keep-btn img-keep-btn" @click="setKeepType('note-img')"><i class="far fa-image"></i></button>
+    <button class="add-keep-btn img-keep-btn" @click="setKeepType('note-video')"><i class="far fa-play-circle"></i></button>
+    <button class="add-keep-btn img-keep-btn" @click="saveNote">save</button>
+    </div>
     </section>
     `,
 
@@ -25,6 +28,7 @@ export default {
     },
     data() {
         return {
+            placeholderTxt:'',
             newNote: {
                 type: [],
                 isPinned: false,
@@ -49,14 +53,19 @@ export default {
             notesService.saveNote(this.newNote)
             this.$emit('save',this.newNote );
         },
-        onImgInput(ev) {
-           notesService.loadImageFromInput(ev)
-        }
+        setKeepType(keepType) {
+            this.newNote.type = keepType
+            if (this.newNote.type === 'note-todo') this.placeholderTxt = 'Enter to-do separated list'
+           else if (this.newNote.type === 'note-img') this.placeholderTxt = 'Enter an image Url'
+           else if (this.newNote.type === 'note-video') this.placeholderTxt = 'Enter a video Url'
+           else if (this.newNote.type === 'note-txt') this.placeholderTxt = 'Enter any text'
+            if (this.keep.data) this.saveKeep()
+        },
 
     },
     mounted() {
 
-    },
+      },
     computed: {
 
     }
