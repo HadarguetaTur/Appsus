@@ -12,7 +12,6 @@ export default {
               'note-img':note.type==='note-img',
               'note-todos':note.type==='note-todo',
               'note-video':note.type==='note-video',  
-              pin:!note.isPinned,  
             }" >
         
             

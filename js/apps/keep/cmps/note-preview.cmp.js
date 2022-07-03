@@ -6,7 +6,7 @@ export default {
   props: ["note"],
   template:
     `
-    <div v-if="note" class="notes-preview" >  
+    <div v-if="note" class="notes-preview" :style="this.style.backgroundColor">  
     <h3>{{note.info.title}}</h3> 
     <h3>{{note.type}}</h3> 
     <h3>{{note.info.label}}</h3> 
@@ -27,7 +27,7 @@ export default {
     <i @click="remove(note.id)"  title="Delete note" class='far fa-trash-alt'></i>
     <i @click="isColorPicer=!isColorPicer"title="Change color" class="fas fa-palette"></i> 
     
-    <div class="colors" :class="isShown" v-if="isColorPicer" >
+    <div class="colors" v-if="isColorPicer" >
     <span class="color-picker-dot" @click="changeColor('lightblue')"  
     title="lightblue" style="background-color:lightblue" >
    </span>
@@ -43,7 +43,7 @@ export default {
 <span class="color-picker-dot" @click="changeColor('lightcyan')" 
  title="lightcyan" style="background-color:lightcyan">
 </span>
-<span class="color-picker-dot" @click="changeColor('white')" 
+<span class="color-picker-dot" @click="note.style.backgroundColor='white'" 
  title="white" style="background-color:white">
 </span>
   
@@ -55,14 +55,18 @@ export default {
   data() {
     return {
       url: '',
-      isColorPicer: false
+      isColorPicer: false,
+      style:{
+        backgroundColor:""
+      }
 
 
     };
   },
   methods: {
     changeColor(color){
-      note.style.backgroundColor=color
+      debugger
+      this.style.backgroundColor=color
     }
 
   },
