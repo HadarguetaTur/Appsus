@@ -76,9 +76,7 @@ export default {
         filterNote(filterBy) {
             this.filterBy = filterBy;
         },
-        color(){
-
-        }
+    
     },
     computed: {
    
