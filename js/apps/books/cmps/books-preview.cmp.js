@@ -2,7 +2,8 @@ export default {
   props: ["book"],
   template:
     `
-    <div class="book-preview"> 
+    <div class="book-preview" v-if="book"> 
+    {{book}}
      <img :src="book.thumbnail" alt="book-img" class="book-card-img">
       <p>{{book.title}}</p>
       <span>{{priceToDisplay}}</span>

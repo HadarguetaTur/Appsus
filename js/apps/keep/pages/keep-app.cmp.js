@@ -8,11 +8,10 @@ import notesFilter from "../cmps/note-filter.cmp.js";
 export default {
     template: `
     <section class="note-app main">
-
       <notes-filter @filtered="filterNote" />
       <keep-add @save="saveNote"/>       
-      <note-list v-if="this.notes" :notes="this.renderNotes(notPin)" @remove="removeNotes" @copy="copy"/>
-      <note-list v-if="this.notes" :notes="this.renderNotes(pin)" @remove="removeNotes" @copy="copy"/>
+      <note-list v-if="this.notes" :notes="this.renderNotes(notPin)" @remove="removeNotes" @copy="copy" @bgColor="color"/>
+      <note-list v-if="this.notes" :notes="this.renderNotes(pin)" @remove="removeNotes" @copy="copy" @bgColor="color"/>
 
     </section>
   `,
@@ -63,9 +62,8 @@ export default {
         },
         copy(note) {
            let newNote = JSON.parse(JSON.stringify(note));
+        this.notes.push(newNote)
 
-            this.notes.push(newNote)
-            console.log(this.notes)
         },
         selectNote(note) {
             this.selectedNote = note;
@@ -76,9 +74,11 @@ export default {
 
         },
         filterNote(filterBy) {
-            console.log(filterBy)
             this.filterBy = filterBy;
         },
+        color(){
+
+        }
     },
     computed: {
    

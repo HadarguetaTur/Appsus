@@ -67,12 +67,12 @@ function __createNots() {
                 info: {
                     label: "Get my stuff together",
                     title: "Fullstack Me Baby!",
-                    det: '',
+                    det: 'this sprint make me sick!!!',
                     
 
                 },
                 style: {
-                    backgroundColor: 'red'
+                    backgroundColor: ''
                 }
             },
             {
@@ -81,7 +81,7 @@ function __createNots() {
                 isPinned: false,
                 info: {
                     label: "Get my stuff together",
-                    title: "Bobi and Me",
+                    title: "The most beautiful place in the world",
                     det:"https://www.photo-art.co.il/wp-content/uploads/2018/09/J75_5568-1.jpg" ,
                     
                 },
@@ -91,6 +91,38 @@ function __createNots() {
             },
             {
                 id: "n103",
+                type: "note-video",
+                isPinned: false,
+                info: {
+                    label: "Get my stuff together",
+                    title: "likes songs",
+                    det:"https://www.youtube.com/watch?v=d4ImcvUNtl0" ,
+                    url:"https://www.youtube.com/embed/d4ImcvUNtl0",
+                    
+                    
+                },
+                style: {
+                    backgroundColor: ''
+                }
+            },
+            {
+                id: "n104",
+                type: "note-video",
+                isPinned: false,
+                info: {
+                    label: "Get my stuff together",
+                    title: "likes songs",
+                    det:"https://www.youtube.com/watch?v=AEpZbvtiQFs&t=21s" ,
+                    url:"https://www.youtube.com/embed/AEpZbvtiQFs&t=21s",
+                    
+                    
+                },
+                style: {
+                    backgroundColor: ''
+                }
+            },
+            {
+                id: "n105",
                 type: "note-todo",
                 isPinned: false,
                 info: {
@@ -107,7 +139,7 @@ function __createNots() {
                 }
             },
             {
-                id: "n104",
+                id: "n106",
                 type: "note-todo",
                 isPinned: false,
                 info: {
@@ -122,7 +154,21 @@ function __createNots() {
                 style: {
                     backgroundColor: ''
                 }
-            }
+            },
+            {
+                id: "n107",
+                type: "note-img",
+                isPinned: false,
+                info: {
+                    label: "Get my stuff together",
+                    title: "my love",
+                    det:"https://ynet-images1.yit.co.il/picserver5/crop_images/2021/07/27/r19lKKTCd/r19lKKTCd_0_0_3000_2114_0_x-large.jpg" ,
+                    
+                },
+                style: {
+                    backgroundColor: ''
+                }
+            },
         ];
         utilService.saveToStorage(NOTES_KEY, notesDb)
 

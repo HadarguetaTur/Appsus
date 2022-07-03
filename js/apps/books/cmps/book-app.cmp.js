@@ -23,6 +23,8 @@ export default {
         bookService.query()
             .then(books => this.books = books)
             
+            
+            
     },
     methods: {
         setFilter(filter) {
