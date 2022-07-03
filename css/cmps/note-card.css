@@ -88,3 +88,7 @@
     cursor: pointer;
     border: 1px solid black;
   }
+
+  .row-pin{
+    flex-direction: row-reverse;
+  }

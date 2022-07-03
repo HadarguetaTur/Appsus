@@ -10,8 +10,8 @@ export default {
     <section class="note-app main">
       <notes-filter @filtered="filterNote" />
       <keep-add @save="saveNote"/>       
+      <note-list class="row-pin flex" v-if="this.notes" :notes="this.renderNotes(pin)" @remove="removeNotes" @copy="copy" @bgColor="color"/>
       <note-list v-if="this.notes" :notes="this.renderNotes(notPin)" @remove="removeNotes" @copy="copy" @bgColor="color"/>
-      <note-list v-if="this.notes" :notes="this.renderNotes(pin)" @remove="removeNotes" @copy="copy" @bgColor="color"/>
 
     </section>
   `,
