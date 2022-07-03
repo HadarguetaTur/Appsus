@@ -75,6 +75,7 @@ export default {
             else if (this.newNote.type === 'note-img') this.placeholderTxt = 'Enter an image Url'
             else if (this.newNote.type === 'note-video') this.placeholderTxt = 'Enter a video Url'
             else if (this.newNote.type === 'note-txt') this.placeholderTxt = 'Enter any text'
+            
         },
 
     },
