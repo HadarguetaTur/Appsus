@@ -1,4 +1,4 @@
-import { notesService } from "../services/note.service.js";
+
 import notePreview from "./note-preview.cmp.js";
 
 
